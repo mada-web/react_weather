@@ -1,38 +1,130 @@
-.App {
-  text-align: center;
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+html {
+  font-size: 62.5%;
+  font-family: Sentinel SSm A, Sentinel SSm B, system-ui, -apple-system,
+    BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif,
+    Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  font-weight: 400;
+  line-height: 1.7;
+}
+body {
+  font-size: 1.6rem;
+  background-color: #f5f5f5;
+  color: #434343;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+a img,
+:link img,
+:visited img {
+  border: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+*:focus {
+  outline: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.app_weather {
   display: flex;
   flex-direction: column;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.result,
+.actions {
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+.result {
+  flex-direction: column;
 }
 
-.App-link {
-  color: #61dafb;
+#search_input {
+  height: 4.5rem;
+  width: 40rem;
+  text-transform: uppercase;
+  font-size: 2em;
+  font-weight: bold;
+  border-radius: 3px;
+  border: 2px solid#dfdfdf;
+  color: inherit;
+  margin-right: 1rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#search_input:active,
+#search_input:focus {
+  border: 2px solid #b2d5e7;
+}
+
+#search_button {
+  height: 5rem;
+  border-radius: 3px;
+  background-image: linear-gradient(90deg, #ff8a00, #e52e71);
+  border: 0;
+  padding: 0 2rem;
+  font-size: 2em;
+  color: #f5f5f5;
+  cursor: pointer;
+}
+
+#search_button:hover {
+  background-image: linear-gradient(180deg, #ff8a00, #e52e71);
+}
+
+.result {
+  font-size: 5rem;
+  /* display: none; */
+}
+
+#city_name {
+  font-weight: 400;
+}
+
+#city_weather {
+  font-weight: lighter;
+}
+
+#reload {
+  border: 0;
+  background-color: transparent;
+  height: 2.4rem;
+  width: 2.4rem;
+  padding-top: 2rem;
+  cursor: pointer;
+}
+
+.humidity,
+.pressure,
+.feels_like {
+  font-size: 2.5rem;
+}
+.description {
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+
+.icon {
+  margin-bottom: -35px;
+}
+#favorite img {
+  width: 3rem;
+  height: 3rem;
+  cursor: pointer;
+  border: none;
+  padding-top: 1.6rem;
+}
+.buttons {
+  display: flex;
+  width: 12rem;
+  justify-content: space-between;
+}
+button {
+  border: none;
+  background-color: transparent;
 }
