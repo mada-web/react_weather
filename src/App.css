@@ -42,6 +42,7 @@ a img,
 }
 .result {
   flex-direction: column;
+  align-items: center;
 }
 .actions {
   justify-content: flex-start;
@@ -92,13 +93,12 @@ a img,
   font-weight: lighter;
 }
 
-#reload {
-  border: 0;
-  background-color: transparent;
-  height: 2.4rem;
-  width: 2.4rem;
-  padding-top: 2rem;
+#button_style img {
+  width: 3rem;
+  height: 3rem;
   cursor: pointer;
+  border: none;
+  padding-top: 1.6rem;
 }
 
 .humidity,
@@ -113,13 +113,6 @@ a img,
 
 .icon {
   margin-bottom: -35px;
-}
-#favorite img {
-  width: 3rem;
-  height: 3rem;
-  cursor: pointer;
-  border: none;
-  padding-top: 1.6rem;
 }
 .buttons {
   display: flex;
@@ -144,4 +137,8 @@ button {
 .input_block {
   display: flex;
   flex-direction: column;
+}
+.text_error {
+  position: fixed;
+  margin-top: 5rem;
 }
