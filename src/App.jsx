@@ -3,10 +3,27 @@ import { getData } from './helper'
 import './App.css'
 import FavIcon from './heart.svg'
 
+const Input = (props) => {
+  const { value, setValue, error } = props
+
+  const onChange = (event) => {
+    const inputValue = event.target.value
+    setValue(inputValue)
+  }
+  const err = error ? 'error' : 'search_input'
+  return (
+    <div className="input_block">
+      <input className={err} type="text" value={value} onChange={onChange} />
+      {error ? <span className="text_error">{error}</span> : null}
+    </div>
+  )
+}
+
 const App = () => {
   const [searchInput, setSearchInput] = useState('')
   const [weather, setWeather] = useState(null)
   const [favs, setFavs] = useState([])
+  const [error, setError] = useState()
 
   useEffect(() => {
     const initialFavs = JSON.parse(localStorage.getItem('favs'))
@@ -17,27 +34,32 @@ const App = () => {
     if (!searchInput) {
       return
     }
+    try {
+      const {
+        name,
+        id,
+        main: { temp, pressure, humidity, feels_like },
+        weather,
+      } = await getData(searchInput)
 
-    const {
-      name,
-      id,
-      main: { temp, pressure, humidity, feels_like },
-      weather,
-    } = await getData(searchInput)
-
-    const updatedWeather = {
-      name,
-      temp,
-      pressure,
-      humidity,
-      feels_like,
-      description: weather[0].description,
-      icon: weather[0].icon,
-      id,
+      const updatedWeather = {
+        name,
+        temp,
+        pressure,
+        humidity,
+        feels_like,
+        description: weather[0].description,
+        icon: weather[0].icon,
+        id,
+      }
+      setWeather(updatedWeather)
+      setError(null)
+    } catch (e) {
+      setError('City not found.')
     }
-    setWeather(updatedWeather)
   }
-  const localWrtite = () => {
+
+  const addToFavs = () => {
     setFavs((favs0) => {
       if (favs0.includes(weather.id)) {
         return favs0
@@ -54,16 +76,12 @@ const App = () => {
     setWeather(null)
     setSearchInput('')
   }
+
   return (
     <div className="app_weather">
       {!weather ? (
         <div className="actions">
-          <input
-            id="search_input"
-            type="text"
-            value={searchInput}
-            onChange={(event) => setSearchInput(event.target.value)}
-          />
+          <Input value={searchInput} setValue={setSearchInput} error={error} />
           <button id="search_button" onClick={onSearchClick}>
             Search
           </button>
@@ -105,7 +123,7 @@ const App = () => {
               </svg>
             </button>
 
-            <button id="favorite" onClick={localWrtite}>
+            <button id="favorite" onClick={addToFavs}>
               <img src={FavIcon} alt="Сердуха" />
             </button>
           </div>
