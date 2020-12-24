@@ -39,17 +39,21 @@ a img,
 .result,
 .actions {
   display: flex;
-}
-.result {
   flex-direction: column;
   align-items: center;
+}
+.search {
+  display: flex;
+  flex-direction: row;
 }
 .actions {
   justify-content: flex-start;
 }
-
+.fav_view {
+  margin-top: 3rem;
+}
 .search_input {
-  height: 4.5rem;
+  height: 4.55rem;
   width: 40rem;
   text-transform: uppercase;
   font-size: 2em;
@@ -71,7 +75,7 @@ a img,
   background-image: linear-gradient(90deg, #ff8a00, #e52e71);
   border: 0;
   padding: 0 2rem;
-  font-size: 2em;
+  font-size: 1.5em;
   color: #f5f5f5;
   cursor: pointer;
 }
@@ -141,4 +145,40 @@ button {
 .text_error {
   position: fixed;
   margin-top: 5rem;
+}
+#favCities {
+  height: 5rem;
+  border-radius: 3px;
+  background-image: linear-gradient(90deg, #14dbad, #00d4ff);
+  border: 0;
+  padding: 0 2rem;
+  font-size: 1.5em;
+  color: #f5f5f5;
+  cursor: pointer;
+}
+
+.list {
+  margin-left: 0;
+  list-style: none;
+}
+.list li {
+  position: relative;
+  margin-bottom: 1.5em;
+  border: 3px solid #cadfcf;
+  padding: 0.6em;
+  border-radius: 4px;
+  background: #fefefe;
+  color: #231f20;
+  font-family: 'Trebuchet MS', 'Lucida Sans';
+}
+.list li:before {
+  position: absolute;
+  top: -0.7em;
+  padding-left: 0.4em;
+  padding-right: 0.4em;
+  font-size: 16px;
+  font-weight: bold;
+  color: #dcc24b;
+  background: #fefefe;
+  border-radius: 50%;
 }

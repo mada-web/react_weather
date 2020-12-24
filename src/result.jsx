@@ -3,7 +3,7 @@ import ReloadIcon from './reload.svg'
 import { Button } from './button'
 
 export const Result = (props) => {
-  const { weather, addToFavs, onReloadClick } = props
+  const { weather, addToFavs, onReloadClick, isSimppleCard=true } = props
   const {
     name,
     temp,
@@ -13,7 +13,7 @@ export const Result = (props) => {
     humidity,
     icon,
   } = weather
-
+  console.log(weather);
   return (
     <div className="result">
       <span>
@@ -35,8 +35,12 @@ export const Result = (props) => {
       <span className="pressure">Атмосферное давление: {pressure} гПа</span>
       <span className="humidity">Относительная влажность: {humidity} %</span>
       <div className="buttons">
-        <Button onClick={addToFavs} icon={FavIcon} alt={'Favorite'} />
-        <Button onClick={onReloadClick} icon={ReloadIcon} alt={'Back'} />
+        {
+          isSimppleCard && 
+          <><Button onClick={addToFavs} icon={FavIcon} alt={'Favorite'} />
+          <Button onClick={onReloadClick} icon={ReloadIcon} alt={'Back'} /></>
+        }
+       
       </div>
     </div>
   )
