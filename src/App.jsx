@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { getData } from './helper'
-import { Input } from './input'
+import InputSearch from './input'
 import { Result } from './result'
 import { FavCities } from './favCities'
 import './App.css'
@@ -79,7 +79,7 @@ const App = () => {
       {!weather ? (
         <div className="actions">
           <div className="search">
-            <Input
+            <InputSearch
               value={searchInput}
               setValue={setSearchInput}
               error={error}

@@ -1,6 +1,6 @@
 import FavIcon from './heart.svg'
 import ReloadIcon from './reload.svg'
-import { Button } from './button'
+import ButtonApp from './button'
 
 export const Result = (props) => {
   const { weather, addToFavs, onReloadClick, isSimppleCard=true } = props
@@ -37,8 +37,8 @@ export const Result = (props) => {
       <div className="buttons">
         {
           isSimppleCard && 
-          <><Button onClick={addToFavs} icon={FavIcon} alt={'Favorite'} />
-          <Button onClick={onReloadClick} icon={ReloadIcon} alt={'Back'} /></>
+          <><ButtonApp onClick={addToFavs} icon={FavIcon} alt={'FAVORITE'} name={'heart'} color={'red'} />
+          <ButtonApp onClick={onReloadClick} icon={ReloadIcon} alt={'BACK'} name={'undo'} color={'blue'} /></>
         }
        
       </div>
