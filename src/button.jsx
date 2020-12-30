@@ -1,10 +1,10 @@
 import React from 'react'
 import { Button, Icon } from 'semantic-ui-react'
 
-const ButtonApp = ({ onClick, name, alt, color }) => (
+const ButtonApp = ({ onClick, name, alt, color, size }) => (
   <Button
     icon
-    size="medium"
+    size={size}
     inverted
     color={color}
     onClick={onClick}

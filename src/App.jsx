@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { getData } from './helper'
 import InputSearch from './input'
+import ButtonApp from './button'
 import { Result } from './result'
 import { FavCities } from './favCities'
 import './App.css'
@@ -84,14 +85,26 @@ const App = () => {
               setValue={setSearchInput}
               error={error}
             />
-            <button id="search_button" onClick={onSearchClick}>
+            <ButtonApp
+              onClick={onSearchClick}
+              name={'search'}
+              color={'blue'}
+              size={'massive'}
+            />
+            {/* <button id="search_button" onClick={onSearchClick}>
               SEARCH
-            </button>
+            </button> */}
           </div>
           <div className="fav_view">
-            <button id="favCities" onClick={() => setShowFav(true)}>
+            <ButtonApp
+              onClick={() => setShowFav(true)}
+              name={'favorite'}
+              color={'blue'}
+              size={'massive'}
+            />
+            {/* <button id="favCities" onClick={() => setShowFav(true)}>
               VIEW FAVORITE CITIES
-            </button>
+            </button> */}
           </div>
         </div>
       ) : (
