@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { getData } from './helper'
-import InputSearch from './input'
-import ButtonApp from './button'
-import { Result } from './result'
-import { FavCities } from './favCities'
-import './App.css'
+import { getData } from './utils/helper'
+import InputComponent from './components/Input'
+import ButtonComponent from './components/Button'
+import { Result } from './components/Result'
+import { FavCities } from './components/FavCities'
+import './css/App.css'
 
 const App = () => {
   const [searchInput, setSearchInput] = useState('')
@@ -80,31 +80,25 @@ const App = () => {
       {!weather ? (
         <div className="actions">
           <div className="search">
-            <InputSearch
+            <InputComponent
               value={searchInput}
               setValue={setSearchInput}
               error={error}
             />
-            <ButtonApp
+            <ButtonComponent
               onClick={onSearchClick}
               name={'search'}
-              color={'blue'}
+              color={'red'}
               size={'massive'}
             />
-            {/* <button id="search_button" onClick={onSearchClick}>
-              SEARCH
-            </button> */}
           </div>
           <div className="fav_view">
-            <ButtonApp
+            <ButtonComponent
               onClick={() => setShowFav(true)}
               name={'favorite'}
-              color={'blue'}
+              color={'red'}
               size={'massive'}
             />
-            {/* <button id="favCities" onClick={() => setShowFav(true)}>
-              VIEW FAVORITE CITIES
-            </button> */}
           </div>
         </div>
       ) : (

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Input } from 'semantic-ui-react'
 
-const InputSearch = ({ value, setValue, error }) => {
+const InputComponent = ({ value, setValue, error }) => {
   const onChange = (event) => {
     const inputValue = event.target.value
     setValue(inputValue)
@@ -36,21 +36,4 @@ const InputSearch = ({ value, setValue, error }) => {
   )
 }
 
-export default InputSearch
-
-// export const Input = (props) => {
-//   const { value, setValue, error } = props
-
-//   const onChange = (event) => {
-//     const inputValue = event.target.value
-//     setValue(inputValue)
-//   }
-//   const err = error ? 'error' : 'search_input'
-
-//   return (
-//     <div className="input_block">
-//       <input className={err} type="text" value={value} onChange={onChange} />
-//       {error ? <span className="text_error">{error}</span> : null}
-//     </div>
-//   )
-// }
+export default InputComponent

@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import ReloadIcon from './reload.svg'
-import { getData } from './helper'
-import { Result } from './result'
-import ButtonApp from './button'
+import { getData } from '../utils/helper'
+import { Result } from './Result'
+import ButtonComponent from './Button'
 
 export const FavCities = (props) => {
   const [cityList, setCityList] = useState([])
@@ -48,9 +47,8 @@ export const FavCities = (props) => {
       </div>
 
       <div className="fav_button">
-        <ButtonApp
+        <ButtonComponent
           onClick={onReloadClick}
-          icon={ReloadIcon}
           alt={'BACK'}
           name={'undo'}
           color={'blue'}
