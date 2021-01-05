@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { getData } from '../utils/helper'
-import { Result } from './Result'
+import { CityCard } from './CityCard'
 import ButtonComponent from './Button'
 
 export const FavCities = (props) => {
@@ -23,23 +23,19 @@ export const FavCities = (props) => {
             const {
               name,
               id,
-              main: { temp, pressure, humidity, feels_like },
+              main: { temp },
               weather,
             } = cityData
 
             const updatedWeather = {
               name,
               temp,
-              pressure,
-              humidity,
-              feels_like,
               description: weather[0].description,
-              icon: weather[0].icon,
               id,
             }
             return (
               <li key={updatedWeather.id}>
-                <Result weather={updatedWeather} isSimppleCard={false} />
+                <CityCard weather={updatedWeather} />
               </li>
             )
           })}

@@ -12,7 +12,6 @@ export const Result = (props) => {
     humidity,
     icon,
   } = weather
-  console.log(weather)
   return (
     <div className="result">
       <span>
