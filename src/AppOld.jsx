@@ -2,9 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { getData } from './utils/helper'
 import InputComponent from './components/Input'
 import ButtonComponent from './components/Button'
-import { Result } from './components/Result'
+import { ResultComponent } from './components/ResultComponent'
 import { FavCities } from './components/FavCities'
-import { BrowserRouter, Route } from 'react-router-dom'
 import './css/App.css'
 
 const App = () => {
@@ -70,18 +69,9 @@ const App = () => {
 
   if (showFav) {
     return (
-      <BrowserRouter>
-        <div className="app_weather">
-          <Route
-            path="/favorite"
-            render={(props) => (
-              <FavCities favs={favs} onReloadClick={onReloadClick} {...props} />
-            )}
-          />
-          {/* <Route path="/favorite" component={FavCities} /> */}
-          {/* <FavCities favs={favs} onReloadClick={onReloadClick} /> */}
-        </div>
-      </BrowserRouter>
+      <div className="app_weather">
+        <FavCities favs={favs} onReloadClick={onReloadClick} />
+      </div>
     )
   }
 
@@ -112,7 +102,7 @@ const App = () => {
           </div>
         </div>
       ) : (
-        <Result
+        <ResultComponent
           weather={weather}
           addToFavs={addToFavs}
           onReloadClick={onReloadClick}

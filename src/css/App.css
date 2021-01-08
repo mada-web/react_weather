@@ -59,7 +59,7 @@ a img,
   font-size: 3em;
   font-weight: bold;
   border-radius: 8px;
-  border: 2px solid #ff5144;
+  border: 2px solid #000;
   color: black;
   margin-right: 1rem;
 }
@@ -165,4 +165,48 @@ button {
   display: flex;
   justify-content: center;
   margin-bottom: 2rem;
+}
+
+.task-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+}
+.task-block {
+  margin-left: 0;
+  margin-right: auto;
+}
+.task-block .list {
+  margin-left: 0;
+  min-width: inherit;
+}
+.task-block li {
+  list-style: decimal;
+  border: none;
+  font-size: large;
+  padding: 1em;
+  margin-bottom: 0.5em;
+}
+
+.task-block li span {
+  align-content: center;
+}
+
+.task-buttons {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.ui.green.button,
+.ui.red.button {
+  margin-left: 1rem;
+}
+.done-bg {
+  background-color: rgba(14, 163, 49, 0.7);
+  padding: 0.4em;
+  border-radius: 2px;
+}
+.ui.black.button {
+  margin-left: 1rem;
 }

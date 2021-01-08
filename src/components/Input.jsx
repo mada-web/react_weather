@@ -1,7 +1,7 @@
 import React from 'react'
 import { Input } from 'semantic-ui-react'
 
-const InputComponent = ({ value, setValue, error }) => {
+const InputComponent = ({ value, setValue, error, placeholder, list }) => {
   const onChange = (event) => {
     const inputValue = event.target.value
     setValue(inputValue)
@@ -18,16 +18,17 @@ const InputComponent = ({ value, setValue, error }) => {
     'Лондон',
     'Берлин',
   ]
-  let citiesArr = arr.map((el) => <option value={el}></option>)
+  const citiesArr = arr.map((el) => <option value={el}></option>)
+
   return (
     <div className="input_block">
       <div>
         <Input
           className={err}
-          list="cities"
+          list={list}
           value={value}
           onChange={onChange}
-          placeholder="Choose the city..."
+          placeholder={placeholder}
         />
         <datalist id="cities">{citiesArr}</datalist>
       </div>
