@@ -7,7 +7,6 @@ export const ToDoList = (props) => {
   const { history } = props
   const [list, setList] = useState([])
   const [input, setInput] = useState('')
-  const [backgroundColor, setBackgroundColor] = useState('')
 
   const addOnClick = () => {
     const newItem = {
@@ -25,10 +24,11 @@ export const ToDoList = (props) => {
   }
 
   const getDoneTheTask = (id) => {
-    const style = 'done-bg'
-    if (list.findIndex((n) => n.id === id)) {
-      setBackgroundColor(style)
-    }
+    let initTask = JSON.parse(localStorage.getItem('tasks')) || []
+    const index = initTask.findIndex((n) => n.id === id)
+    initTask[index].complete = true
+    setList(initTask)
+    localStorage.setItem('tasks', JSON.stringify(initTask))
   }
 
   const comeback = () => {
@@ -39,14 +39,15 @@ export const ToDoList = (props) => {
     let initTask = JSON.parse(localStorage.getItem('tasks')) || []
     const index = initTask.findIndex((n) => n.id === id)
     initTask.splice(index, 1)
+    setList(initTask)
     localStorage.setItem('tasks', JSON.stringify(initTask))
   }
 
   useEffect(() => {
     const initTask = JSON.parse(localStorage.getItem('tasks'))
     setList(initTask || [])
-    console.log(initTask)
   }, [])
+
   return (
     <div className="actions">
       <h1>TO-DO LIST</h1>
@@ -70,7 +71,9 @@ export const ToDoList = (props) => {
             return (
               <li key={item.id}>
                 <span className="task-list">
-                  <span className={backgroundColor}>{item.text}</span>
+                  <span className={item.complete ? 'done-bg' : ''}>
+                    {item.text}
+                  </span>
                   <span className="task-buttons">
                     <ButtonComponent
                       onClick={() => getDoneTheTask(item.id)}

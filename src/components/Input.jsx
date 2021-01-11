@@ -18,6 +18,7 @@ const InputComponent = ({ value, setValue, error, placeholder, list }) => {
     'Лондон',
     'Берлин',
   ]
+  
   const citiesArr = arr.map((el) => <option value={el}></option>)
 
   return (
